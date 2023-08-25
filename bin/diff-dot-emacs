@@ -1,0 +1,4 @@
+#!/bin/sh
+
+diff -r /mnt/c/Users/ymdsm/AppData/Roaming/.emacs /home/monmon/dotfiles/.emacs
+diff -r /mnt/c/Users/ymdsm/AppData/Roaming/.emacs.d/lisp /home/monmon/dotfiles/.emacs.d/lisp

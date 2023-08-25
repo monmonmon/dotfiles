@@ -1,0 +1,15 @@
+.#*
+*~
+*.swp
+*.swo
+*.dump
+.DS_Store
+.envrc
+.python-version
+__pycache__
+.vimrc.local
+.netrwhist
+.docker
+.idea
+.ruby-version
+.color

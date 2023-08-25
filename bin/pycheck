@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ -z "$1" ]; then
+    echo "Usage: $(basename $0) <python file name>"
+    exit 1
+fi
+python -m py_compile $1

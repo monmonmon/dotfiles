@@ -1,0 +1,30 @@
+name: st
+root: ~/projects/skimatalk/t
+
+on_project_first_start:
+  - export RBENV_VERSION=
+  - rbenv rehash
+  - docker-compose up -d
+  - sleep 3  # wait middlewares to get up
+
+on_project_stop:
+  - bundle exec spring stop
+  - say bye
+
+windows:
+  - s:
+    # rails server
+    #- BULLET=1 bundle exec rails s || echo "\a"
+    - BULLET=1 bundle exec foreman start -p 3003 || echo "\a"
+  - l:
+    # tail log
+    - test -f log/development.log || mkdir -p log; touch log/development.log
+    - tail -0f log/development.log | grep -v -e '^Cache' -e '^Read fragment'
+  - p:
+    # postgresql
+    - while ! curl http://localhost:$(awk -F= '/^PSQL_PORT/{print $2}' .env)/ 2>&1 | grep -qw 52; do sleep 1; done
+    - psql -h localhost -p $(awk -F= '/^PSQL_PORT/{print $2}' .env) $(grep -v '^#' database.txt)
+  - c:
+    # rails console
+    - bundle exec spring stop
+    - bundle exec rails console || echo "\a"

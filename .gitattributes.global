@@ -1,0 +1,4 @@
+#*.rb diff=ruby
+*.py diff=python
+*.php diff=php
+*.html diff=html

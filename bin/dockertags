@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ $# -ne 1 ]; then
+    echo "Usage: $(basename $0) <docker image>"
+    exit 1
+fi
+name=$1
+
+wget -q -O - https://registry.hub.docker.com/v1/repositories/$name/tags | tr '}' '\n' | cut -d\" -f8

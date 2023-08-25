@@ -1,0 +1,9 @@
+name: shkf
+root: ~/ghq/github.com/monmonmon/shokutsu-admin-front
+
+windows:
+  - a:
+    - yarn dev
+  - f:
+    - cd ~/ghq/github.com/monmonmon/shokutsu-front
+    - yarn dev

@@ -1,0 +1,21 @@
+name: todo
+root: ~/ghq/github.com/monmonmon/todo
+
+on_project_first_start:
+  - export RBENV_VERSION=
+  - rbenv rehash
+  - docker-compose up -d
+  - sleep 3  # wait middlewares to get up
+
+windows:
+  - s: # rails server
+    - bundle exec rails server || echo "\a"
+  - l: # tail log
+    - test -f log/development.log || mkdir -p log; touch log/development.log
+    # - tail -0f log/development.log | grep -v -e '^Cache' -e '^Read fragment'
+    - tail -0f log/development.log
+  - p: # postgresql
+    - PGPASSWORD=password psql -Upostgres -h localhost todo
+  - c: # rails console
+    # - bundle exec spring stop
+    - bundle exec rails console || echo "\a"
