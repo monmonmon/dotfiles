@@ -1,0 +1,10 @@
+source ~/.vimrc
+
+nmap <leader>c <Nop>
+xmap <leader>c <Nop>
+nmap <leader>i <Nop>
+xmap <leader>i <Nop>
+nmap <leader>u <Nop>
+xmap <leader>u <Nop>
+
+nmap <leader>q <Nop>

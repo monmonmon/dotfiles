@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# URLエンコードされた文字列をデコード
+
+# 文字列をクリップボードから受け取る（末尾の改行を除く）
+url=$(echo $(pbpaste))
+if [ -z "$url" ]; then
+    url="$1"
+    if [ -z "$url" ]; then
+        echo "hmmm"
+        exit 1
+    fi
+fi
+# デコード
+url2=$(node -e "console.log(decodeURIComponent('${url}'));")
+# クリップボードへコピー
+echo "$url2"
+echo "$url2" | pbcopy

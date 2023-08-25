@@ -1,0 +1,19 @@
+name: gr
+root: ~/ghq/github.com/Synamon-jp/group-server
+
+on_project_first_start:
+  - export RBENV_VERSION=
+  - rbenv rehash
+
+windows:
+  - s:
+    - rm -f tmp/pids/server.pid; syd up
+  - l:
+    - tail -0f log/development.log
+  - p:
+    - sleep 3
+    - PGPASSWORD=password psql -Upostgres -h localhost -p 5433 development
+  - c:
+    - sleep 3
+    # - sy rails c || echo "\a"
+    - sy rails c

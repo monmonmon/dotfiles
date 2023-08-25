@@ -1,0 +1,63 @@
+[user]
+	name = Yamada Simon
+	email = ymdsmn@gmail.com
+	signingkey = B3FC289183D5E956
+[core]
+	excludesfile = /Users/monmon/.gitignore.global
+	attributesfile = ~/.gitattributes.global
+	compression = -1
+	#pager = less -Mij5
+	pager = less -R
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[merge]
+	# --no-ff: no fast foward
+	#ff = false
+[alias]
+	co = checkout
+	st = status -sb
+	ci = commit -a
+	di = diff
+	br = branch
+	l = log --date=local
+	l1 = log --format=oneline
+	ls = log --stat
+	lg = log --graph
+	gitkconflict = !gitk --left-right HEAD...MERGE_HEAD
+	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
+	sb = show-branch --all
+	sw = switch
+	ch = cherry -v
+[push]
+	default = current
+[commit]
+	template = ~/.stCommitMsg
+	#gpgsign = true
+[ghq]
+	root = ~/.ghq
+	root = ~/.go/src
+[pager]
+	branch = cat
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[http]
+	postBuffer = 1048576000
+[pull]
+	ff = only
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[url "git@github.com:monmonmon/"]
+	insteadof = gh:
+[init]
+	defaultBranch = main
