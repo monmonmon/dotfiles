@@ -1,0 +1,22 @@
+;;; color settings (from Emacs Lisp TIPS) ;;;
+
+(if window-system (progn
+  (require 'font-lock)
+  (global-font-lock-mode t)
+  (add-hook 'font-lock-mode-hook '(lambda ()
+    (set-face-foreground 'font-lock-builtin-face "purple")
+    (set-face-foreground 'font-lock-comment-face "springgreen3")
+    (set-face-foreground 'font-lock-string-face  "purple")
+    (set-face-foreground 'font-lock-keyword-face "blue")
+    (set-face-foreground 'font-lock-constant-face "black")
+    (set-face-foreground 'font-lock-function-name-face "blue")
+    (set-face-foreground 'font-lock-variable-name-face "black")
+    (set-face-foreground 'font-lock-type-face "LightSeaGreen")
+    (set-face-foreground 'font-lock-warning-face "blue")
+    (set-face-bold-p 'font-lock-function-name-face t)
+    (set-face-bold-p 'font-lock-warning-face nil)
+    (set-face-foreground 'mode-line "white")
+    (set-face-background 'mode-line "black")
+    (set-face-foreground 'mode-line-inactive "white")
+    (set-face-background 'mode-line-inactive "gray50")
+    ))))

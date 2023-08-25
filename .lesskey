@@ -1,0 +1,5 @@
+^k prev-file
+^j next-file
+h left-scroll
+l right-scroll
+\eh help

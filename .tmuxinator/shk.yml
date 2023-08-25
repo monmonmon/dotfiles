@@ -1,0 +1,23 @@
+name: shk
+root: ~/ghq/github.com/monmonmon/shokutsu-api
+
+on_project_first_start:
+  - export RBENV_VERSION=
+  - rbenv rehash
+  - docker-compose up -d
+  - sleep 3  # wait middlewares to get up
+
+windows:
+  - s: # rails server
+    #- bundle exec rails server || echo "\a"
+    - bundle exec foreman start || echo "\a"
+  - l: # tail log
+    - test -f log/development.log || mkdir -p log; touch log/development.log
+    # - tail -0f log/development.log | grep -v -e '^Cache' -e '^Read fragment'
+    - tail -0f log/development.log
+  - p: # postgresql
+    #- docker exec -it shokutsu-api_db_1 psql shokutsu_development
+    - PGPASSWORD=password psql -Uroot -h localhost -p 15432 shokutsu_development
+  - c: # rails console
+    - bundle exec spring stop
+    - bundle exec rails console || echo "\a"

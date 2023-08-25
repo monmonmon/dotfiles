@@ -1,0 +1,17 @@
+name: a
+root: ~/
+
+on_project_start:
+  - echo start
+
+on_project_first_start:
+  - echo first start
+
+windows:
+  - main:
+  #     layout: main-vertical
+  #     # layout: main-horizontal
+  #     panes:
+  #       - echo "test 1"
+  #       - echo "test 2"
+  # - second: echo "test 3"

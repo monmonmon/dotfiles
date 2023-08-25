@@ -1,0 +1,7 @@
+/.vim/view
+/.vim/bundle
+!/.vim/bundle/Vundle.vim
+cache
+/bin/node_modules
+/.emacs.d/.emacs.desktop
+/.emacs.d/.emacs.desktop.lock

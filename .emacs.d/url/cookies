@@ -1,0 +1,17 @@
+;; Emacs-W3 HTTP cookies file
+;; Automatically generated file!!! DO NOT EDIT!!!
+
+(setq url-cookie-storage
+ '(("49.212.165.96"
+  [cookie "mediawikiUserID" "1" "21-Jan-2013 16:11:04.00 GMT" "/" "49.212.165.96" nil]
+  [cookie "httponly" nil "21-Jan-2013 16:11:04.00 GMT" "/" "49.212.165.96" nil]
+  [cookie "mediawikiUserName" "Ymdsmn" "21-Jan-2013 16:11:04.00 GMT" "/" "49.212.165.96" nil]
+  [cookie "mediawikiToken" "7f32bacae6c3107ea112ee2af7bd786f" "21-Jan-2013 16:11:04.00 GMT" "/" "49.212.165.96" nil]))
+)
+(setq url-cookie-secure-storage
+ 'nil)
+
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; End:

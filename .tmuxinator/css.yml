@@ -1,0 +1,19 @@
+name: css
+root: ~/ghq/github.com/STANDARD2017-dev/aisin_css_poi_poc_rails
+
+on_project_first_start:
+  - export RBENV_VERSION=
+  - rbenv rehash
+  - docker-compose up -d
+  - sleep 3  # wait middlewares to get up
+
+windows:
+  - l: # tail log
+    - test -f log/development.log || mkdir -p log; touch log/development.log
+    - tail -0f log/development.log
+  - p: # postgresql
+    - mysql -hlocalhost -P3306 --protocol=tcp -uroot -ppassword css_poi_poc_ver_03_dev
+  - c: # rails console
+    - docker-compose exec -it main bundle exec rails console
+  - b: # bash
+    - docker-compose exec -it main bash

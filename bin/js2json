@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+const text = require('fs').readFileSync('/dev/stdin', 'utf8');
+const obj = eval(`(${text})`);
+console.log(JSON.stringify(obj, null, 2))

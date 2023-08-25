@@ -1,0 +1,2 @@
+#!/bin/sh
+host $(hostname) | grep 'has address' | cut -d' ' -f4

@@ -1,0 +1,15 @@
+authtoken: 3VAu4wrk6P6LMT53Vqve1_2iwosxgLMDWxyq5P9vFNk
+region: ap
+log_level: info
+log_format: json
+log: /tmp/ngrok.log
+
+tunnels:
+  nuxt-stripe:
+    addr: 3000
+    proto: http
+    subdomain: rongo
+  applepay:
+    addr: 4567
+    proto: http
+    subdomain: rongo1
