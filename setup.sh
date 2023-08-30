@@ -1,9 +1,12 @@
 #!/bin/bash
 
-while getopts "bh" opt; do
+while getopts "bvh" opt; do
     case $opt in
         b)
             backup=1
+            ;;
+        v)
+            vim_vundle=1
             ;;
         h)
             echo "Usage: $0 [-b] [-h]" >&2
@@ -64,7 +67,7 @@ HERE
 fi
 
 # vimのセットアップ
-if [ ! -d ~/.vim/bundle/emmet-vim ]; then
+if [ "$vim_vundle" = "1" -a ! -d ~/.vim/bundle/emmet-vim ]; then
     set -e
     # submodule の Vundle.vim を取得
     git submodule update -i
