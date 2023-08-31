@@ -1,5 +1,5 @@
 /.vim/view
-/.vim/bundle
+/.vim/bundle/*
 !/.vim/bundle/Vundle.vim
 cache
 /bin/node_modules
