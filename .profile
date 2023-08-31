@@ -570,7 +570,7 @@ say FINISH .profile
 # function ya () {
 #     if ! networksetup -getairportnetwork en0|grep -q MIG-2; then
 #         echo wrong ssid
-#     elif ! adb devices|grep -q 1C301FDF600EF3; then
+#     elif ! adb devices|grep -q xx; then
 #         echo device not connected
 #     else
 #         yarn android
@@ -586,9 +586,9 @@ say FINISH .profile
 #     fi
 # }
 
-alias cm='docker-compose exec main'
-alias cmm='docker-compose exec main bundle exec'
-alias cmmt='docker-compose exec -e RAILS_ENV=test main bundle exec'
-alias cmr='docker-compose exec -it main bundle exec rails console'
-alias cmb='docker-compose exec -it main bash'
-alias rubo='docker-compose exec main bundle exec rubocop $(git status -s | aw 2 | grep -w -e rb -e rake)'
+# alias cm='docker-compose exec main'
+# alias cmm='docker-compose exec main bundle exec'
+# alias cmmt='docker-compose exec -e RAILS_ENV=test main bundle exec'
+# alias cmr='docker-compose exec -it main bundle exec rails console'
+# alias cmb='docker-compose exec -it main bash'
+# alias rubo='docker-compose exec main bundle exec rubocop $(git status -s | aw 2 | grep -w -e rb -e rake)'
