@@ -4,7 +4,7 @@
 readonly SCRIPTNAME="$(basename "$0")"
 export sec=0
 for arg in "$@"; do
-  if [[ "$arg" =~ ([0-9]+)([hms]) ]];then
+  if [[ "$arg" =~ ([0-9]+)([hms]?) ]];then
     num=${BASH_REMATCH[1]}
     unit=${BASH_REMATCH[2]}
     case "$unit" in
@@ -14,7 +14,7 @@ for arg in "$@"; do
       m)
         sec=$((sec += num * 60))
         ;;
-      s)
+      *)
         sec=$((sec += num))
         ;;
     esac
