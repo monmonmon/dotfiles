@@ -66,11 +66,12 @@ HERE
     chmod 600 ~/.ssh/known_hosts
 fi
 
+# git submodule
+git submodule update -i
+
 # vimのセットアップ
 if [ "$vim_vundle" = "1" -a ! -d ~/.vim/bundle/emmet-vim ]; then
     set -e
-    # submodule の Vundle.vim を取得
-    git submodule update -i
     # Vundleパッケージをインストール
     vim +PluginInstall +qall
     # vimprocをmake

@@ -6,22 +6,15 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Shougo/vimproc.vim' " 非同期実行
-"Plugin 'toyamarinyon/vim-swift'
-"Plugin 'elixir-lang/vim-elixir'
-"Plugin 'derekwyatt/vim-scala'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'digitaltoad/vim-pug'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'claco/jasmine.vim'
 Plugin 'slim-template/vim-slim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'ap/vim-css-color'
 Plugin 'cakebaker/scss-syntax.vim'
-"Plugin 'taichouchou2/surround.vim' インスコ失敗する？
 Plugin 'mattn/webapi-vim'
-"Plugin 'mattn/sonictemplate-vim'
 Plugin 'prettier/vim-prettier'
 Plugin 'Quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim'
