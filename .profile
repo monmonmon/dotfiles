@@ -227,8 +227,9 @@ rate() {
         echo API key is missing :P
         return
     fi
-    from=${1:-USD}
-    to=${2:-JPY}
+    from=${1:-usd}
+    to=${2:-jpy}
+    echo $from $to
     curl -s "https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=$from&to_currency=$to&apikey=$ALPHAVANTAGE_APIKEY" | jq -r '.["Realtime Currency Exchange Rate"]["5. Exchange Rate"]'
 }
 safefilename() {
