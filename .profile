@@ -3,7 +3,7 @@ umask 022
 mesg n || true
 
 say () {
-    # echo "$(date +%M:%S) $*"
+    # echo "$(date +%H:%S.%3N) $*"
     :
 }
 __callable () {
@@ -13,11 +13,13 @@ __callable () {
 say START .profile
 
 ### PATH / MANPATH ###
-say ENVIRONMENT VARIABLES
-# export PATH=$PATH:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+say PATH / MANPATH
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-if [ -d /opt/homebrew/bin ]; then
-    export PATH=$PATH:/opt/homebrew/bin
+export MANPATH=/usr/share/man
+if __callable brew && test -d /usr/local/opt/coreutils; then
+    # coreutils
+    export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+    export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 fi
 if uname -r|grep -q microsoft; then
     # WSL2
@@ -26,12 +28,12 @@ if uname -r|grep -q microsoft; then
     export PATH=$PATH:'/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin'
     alias ex='/mnt/c/Windows/explorer.exe .'
 fi
-export MANPATH=/usr/share/man
+
+### ENVIRONMENT VARIABLES ###
+say ENVIRONMENT VARIABLES
 if [ -e ~/.env ]; then
     . ~/.env
 fi
-
-### ENVIRONMENT VARIABLES ###
 export LANG=ja_JP.UTF-8
 export LC_ALL=ja_JP.UTF-8
 export PAGER=less
@@ -483,7 +485,7 @@ if __callable brew && [ -d $(brew --prefix)/etc/bash_completion.d ]; then
 fi
 
 # anyenv
-if [ -d ~/.anyenv ]; then
+if ! __callable rbenv && [ -d ~/.anyenv ]; then
     say anyenv
     eval "$(anyenv init -)"
 fi
@@ -526,6 +528,11 @@ fi
 # gcc
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+# golang
+if [ -n "$GOPATH" ]; then
+    export PATH=$GOPATH/bin:$PATH
+fi
+
 # Android SDK
 if [ -d $HOME/Library/Android/sdk/platform-tools ]; then
     export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -533,11 +540,6 @@ if [ -d $HOME/Library/Android/sdk/platform-tools ]; then
     export PATH=$PATH:$ANDROID_HOME/tools
     export PATH=$PATH:$ANDROID_HOME/tools/bin
     export PATH=$PATH:$ANDROID_HOME/platform-tools
-fi
-
-# node
-if __callable npm; then
-    eval "`npm completion`"
 fi
 
 # # java
