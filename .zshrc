@@ -1,6 +1,6 @@
 test -r ~/.profile && . ~/.profile
 say () {
-    # echo "$(date +%M:%S) $*"
+    # echo "$(date +%H:%S.%3N) $*"
     :
 }
 say START .zshrc
