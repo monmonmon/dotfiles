@@ -389,9 +389,10 @@ function opendir () {
         fi
     fi
 }
-function mkcd () {
+function mkdircd () {
     mkdir -p "$*" && cd "$*"
 }
+alias mkcd=mkdircd
 # mainとdevelopを互いにマージしてpush
 function gkk () {
     original_branch=$(git symbolic-ref --short HEAD)
