@@ -70,7 +70,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(markdown-preview-mode markdown-mode typescript-mode mozc add-node-modules-path flycheck vue-mode elm-mode pug-mode solidity-mode js2-mode yaml-mode swift-mode slim-mode sass-mode python-environment pos-tip pkg-info magit jade-mode hledger-mode helm haskell-mode go-mode git-gutter gherkin-mode fuzzy feature-mode f exec-path-from-shell epc csv-mode coffee-mode buffer-move auto-complete)))
+   '(markdown-preview-mode markdown-mode typescript-mode mozc add-node-modules-path flycheck vue-mode elm-mode pug-mode solidity-mode yaml-mode swift-mode slim-mode sass-mode python-environment pos-tip pkg-info magit jade-mode hledger-mode helm haskell-mode go-mode git-gutter gherkin-mode fuzzy feature-mode f exec-path-from-shell epc csv-mode coffee-mode buffer-move auto-complete)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
