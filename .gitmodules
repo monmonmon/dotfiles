@@ -1,3 +1,6 @@
 [submodule "lib/peda"]
 	path = lib/peda
 	url = https://github.com/longld/peda.git
+[submodule ".vim/bundle/Vundle.vim"]
+	path = .vim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
