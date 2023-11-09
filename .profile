@@ -193,7 +193,11 @@ alias grep="grep --color=auto --exclude='*.swp' --exclude='.#*' --exclude='*.jpg
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias rsync='rsync --iconv=UTF8-MAC,UTF-8'
-alias top='top -ocpu -s2 -stats pid,ppid,pgrp,command,time,cpu,mem,cpu_me,cpu_others,state,faults'
+if uname -r|grep -q Darwin; then
+    alias top='top -ocpu -s2 -stats pid,ppid,pgrp,command,time,cpu,mem,cpu_me,cpu_others,state,faults'
+else
+    alias top='top -d2'
+fi
 alias d=docker
 alias dc=docker-compose
 alias de='docker exec'
