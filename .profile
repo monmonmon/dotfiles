@@ -551,6 +551,17 @@ if [ -d $HOME/Library/Android/sdk/platform-tools ]; then
     export PATH=$PATH:$ANDROID_HOME/platform-tools
 fi
 
+# # 繋いでるSSIDとスマホ(Pixel 5)を確認したうえで yarn android
+# function ya () {
+#     if ! networksetup -getairportnetwork en0|grep -q MIG-2; then
+#         echo wrong ssid
+#     elif ! adb devices|grep -q xx; then
+#         echo device not connected
+#     else
+#         yarn android
+#     fi
+# }
+
 # # java
 # if [ -x /usr/libexec/java_home ] && /usr/libexec/java_home 2>&1 >/dev/null; then
 #     export JAVA_HOME=`/usr/libexec/java_home -v 15`
@@ -576,31 +587,5 @@ fi
 if [ -d "$HOME/.pub-cache/bin" ]; then
     export PATH="$PATH":"$HOME/.pub-cache/bin"
 fi
+
 say FINISH .profile
-
-# # 繋いでるSSIDとスマホ(Pixel 5)を確認したうえで yarn android
-# function ya () {
-#     if ! networksetup -getairportnetwork en0|grep -q MIG-2; then
-#         echo wrong ssid
-#     elif ! adb devices|grep -q xx; then
-#         echo device not connected
-#     else
-#         yarn android
-#     fi
-# }
-# 本番用・開発用2つの docker-compose.yml を読んで docker-compose 起動
-# alias syd='docker-compose -f docker-compose.yml -f docker-compose-development.yml'
-# function sy () {
-#     if [ -z "$*" ]; then
-#         echo ':P'
-#     else
-#         docker-compose -f docker-compose.yml -f docker-compose-development.yml run --rm --entrypoint "$*" web
-#     fi
-# }
-
-# alias cm='docker-compose exec main'
-# alias cmm='docker-compose exec main bundle exec'
-# alias cmmt='docker-compose exec -e RAILS_ENV=test main bundle exec'
-# alias cmr='docker-compose exec -it main bundle exec rails console'
-# alias cmb='docker-compose exec -it main bash'
-# alias rubo='docker-compose exec main bundle exec rubocop $(git status -s | aw 2 | grep -w -e rb -e rake)'
