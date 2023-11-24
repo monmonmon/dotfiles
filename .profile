@@ -588,4 +588,8 @@ if [ -d "$HOME/.pub-cache/bin" ]; then
     export PATH="$PATH":"$HOME/.pub-cache/bin"
 fi
 
+if [ -f ~/.profile.local ]; then
+    . ~/.profile.local
+fi
+
 say FINISH .profile
