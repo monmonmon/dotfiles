@@ -145,7 +145,7 @@ alias ggdm='git-diff-per-commit.sh -m'
 gcm () { git commit -m "$*"; }
 gca () {
     if [ $# -eq 0 ]; then
-        git commit --amend
+        git commit --amend --no-edit
     else
         git commit --amend -m "$*"
     fi
