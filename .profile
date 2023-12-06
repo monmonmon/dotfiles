@@ -99,7 +99,7 @@ alias mem='top -stats command,rsize,vsize -o rsize'
 alias ehe="find . \( -name .DS_Store -o -name '._*' \)"
 alias ehehe="find . \( -name .DS_Store -o -name '._*' -o -name Thumbs.db \) -print -execdir touch -r . /tmp/ehehe \; -execdir rm {} \; -execdir touch -r /tmp/ehehe . \;"
 if __callable ss; then
-    alias np="ss -ant | grep -w -e State -e LISTEN"
+    alias np="ss -lt"
 else
     alias np="netstat -an | grep LISTEN | grep -vw -e '^unix' -e '^tcp6'"
 fi
@@ -503,6 +503,12 @@ fi
 
 # ghq
 export GHQ_ROOT=~/ghq
+
+# volta
+if [ -d "$HOME/.volta" ]; then
+    export VOLTA_HOME="$HOME/.volta"
+    export PATH="$VOLTA_HOME/bin:$PATH"
+fi
 
 # deno
 if [ -d ~/.deno/bin ]; then
