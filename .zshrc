@@ -3,6 +3,10 @@ say () {
     # echo "$(date +%H:%S.%3N) $*"
     :
 }
+__callable () {
+    type "$1" > /dev/null 2>&1
+}
+
 say START .zshrc
 
 ### Prompts ###
