@@ -539,14 +539,19 @@ fi
 # gcc
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# # golang
-# if [ -n "$GOPATH" ]; then
-#     export PATH=$GOPATH/bin:$PATH
-# fi
-export GOROOT=$HOME/go
-export GOPATH=$GOROOT/path
-# export GOMODCACHE=$GOROOT/pkg/mod
-export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+# # # golang
+# # if [ -n "$GOPATH" ]; then
+# #     export PATH=$GOPATH/bin:$PATH
+# # fi
+# export GOROOT=$HOME/go
+# export GOPATH=$GOROOT/path
+# # export GOMODCACHE=$GOROOT/pkg/mod
+# export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+
+# golang
+if __callable go; then
+    export PATH=$(go env GOPATH)/bin:$PATH
+fi
 
 # Android SDK
 if [ -d $HOME/Library/Android/sdk/platform-tools ]; then
