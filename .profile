@@ -227,6 +227,7 @@ alias p1='ping 1.1.1.1'
 alias e='ej'
 alias sortl='sort|less'
 alias brewup='time ( brew update && brew upgrade && brew upgrade --cask && brew cleanup )'
+alias aptup='time ( sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y )'
 alias bomify='nkf --oc=utf-8-bom --overwrite'
 rate() {
     if [ -z "$ALPHAVANTAGE_APIKEY" ]; then
