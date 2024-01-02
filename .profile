@@ -300,7 +300,7 @@ function nr2ip () {
 function a () {
     test $# -eq 0 && return
     s=$(echo "$*" | tr ' ' '+')
-    w3m -dump "http://eow.alc.co.jp/${s}/UTF-8/?ref=sa" | gsed -n '/の意味・使い方・読み方\|検索結果一覧を見る\|に該当する項目は見つかりませんでした。/,/^\[eow_sale_s\]/ p' | gsed 's/    単語帳//' | less
+    w3m -dump "http://eow.alc.co.jp/${s}/UTF-8/?ref=sa" | gsed -n '/の意味・使い方・読み方\|検索結果一覧を見る\|に該当する項目は見つかりませんでした。/,/^\[btn-arr2]\|^ページの先頭に戻る$/ p' | gsed 's/    単語帳//' | less
 }
 function alc () {
     test $# -eq 0 && return
