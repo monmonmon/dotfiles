@@ -243,6 +243,7 @@ safefilename() {
     test $# -eq 0 && return
     echo "$*" | tr '\/:*?"<>|' '￥／：＊？” ＜＞｜'
 }
+alias uncolor='sed -r "s/\x1B\[([0-9]{1,3}((;[0-9]{1,3})*)?)?[m|K]//g"'
 
 ### SHELL FUNCTIONS ###
 say SHELL FUNCTIONS
