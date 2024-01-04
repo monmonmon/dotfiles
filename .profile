@@ -485,6 +485,10 @@ compress-files () {
 
 ### MISC ###
 say MISC
+# xmodmap
+if [ -f ~/.xmodmaprc ]; then
+    xmodmap ~/.xmodmaprc
+fi
 # bash completion
 if __callable brew && [ -d $(brew --prefix)/etc/bash_completion.d ]; then
     say bash_completion
