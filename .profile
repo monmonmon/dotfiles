@@ -436,6 +436,7 @@ _git_cherry ()
 {
         __gitcomp "$(__git_refs)"
 }
+# 全ての拡張属性を削除
 rmattr () {
     if [ ! -e "$1" ]; then
         echo :P
@@ -455,6 +456,7 @@ chmodd () {
     find "$dir" -perm 777 -a -type d -exec chmod 755 {} \;
     find "$dir" -perm 777 -a -type f -exec chmod 644 {} \;
 }
+# 指定番目のフィールドを出力
 aw () {
     if [ $# -ge 1 -a "$1" -eq "$1" ] 2>/dev/null; then
         if [ -n "$2" ]; then
@@ -481,6 +483,35 @@ compress-files () {
             zopfli "$f"
         done
     done
+}
+# 体重からBMIを計算
+bmi () {
+    if [ -n "$1" ]; then
+        printf "%.3f\n" $(($1 / 1.76 ** 2))
+    fi
+}
+# 0詰めした数字列を生成
+numbers () {
+    if [ $# -eq 1 ]; then
+        s=1
+        e=$1
+    elif [ $# -eq 2 ]; then
+        s=$1
+        e=$2
+    else
+        return
+    fi
+    for i in $(seq $s $e); do printf "%03d\n" $i; done
+}
+# ランダムなhex文字列を生成
+hex () {
+    n=8
+    if [ $# -eq 1 ]; then
+        n=$1
+    fi
+    h=$(hexdump -vn$(($n/2)) -e'1 "%02x"' /dev/urandom)
+    echo -n $h | pbcopy
+    echo $h
 }
 
 ### MISC ###
