@@ -514,6 +514,9 @@ hex () {
     echo -n $h | pbcopy
     echo $h
 }
+dip () {
+    docker-compose ps -q | xargs docker inspect | jq -r '.[] | "\(.Name | ltrimstr("/"))\t\([.NetworkSettings.Networks[].IPAddress] | join(", "))"'
+}
 
 ### MISC ###
 say MISC
