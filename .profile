@@ -92,6 +92,7 @@ alias ........='cd ../../../../../../..'
 alias cd-='cd -'
 alias v=vim
 alias vv=view
+alias vd=vimdiff
 alias tml='tmux ls'
 alias jql='jq | less'
 alias mysql='mysql --default-character-set=utf8'
