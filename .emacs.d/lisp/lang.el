@@ -228,6 +228,7 @@
 ; org-mode
 (setq org-startup-truncated nil)
 (setq org-startup-folded nil)
+(add-hook 'rst-mode-hook 'turn-on-orgtbl)
 
 ; vue-mode
 ;(require 'vue-mode)
