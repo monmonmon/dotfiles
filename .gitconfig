@@ -3,7 +3,7 @@
 	email = ymdsmn@gmail.com
 	signingkey = B3FC289183D5E956
 [core]
-	excludesfile = /Users/monmon/.gitignore.global
+	excludesfile = ~/.gitignore.global
 	attributesfile = ~/.gitattributes.global
 	compression = -1
 	#pager = less -Mij5
