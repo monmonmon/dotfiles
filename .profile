@@ -514,8 +514,9 @@ hex () {
     echo -n $h | pbcopy
     echo $h
 }
+# dockerコンテナに振られたIPをリスト
 dip () {
-    docker-compose ps -q | xargs docker inspect | jq -r '.[] | "\(.Name | ltrimstr("/"))\t\([.NetworkSettings.Networks[].IPAddress] | join(", "))"'
+    ( docker-compose ps -q 2>/dev/null || docker ps -q ) | xargs docker inspect | jq -r '.[] | "\(.Name | ltrimstr("/"))\t\([.NetworkSettings.Networks[].IPAddress] | join(", "))"'
 }
 
 ### MISC ###
