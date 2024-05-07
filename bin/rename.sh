@@ -9,8 +9,8 @@ fi
 
 cd "$1"
 i=1
-#for f in $(ls -tr); do
-for f in $(ls); do
+for f in $(ls -tr); do
+#for f in $(ls); do
     j=$(printf "%03d" $i)
     echo mv $f $j.jpg
     mv $f $j.jpg
