@@ -659,4 +659,10 @@ else
 fi
 unset __conda_setup
 
+# terraform
+if [ -f /usr/bin/terraform ]; then
+    autoload -U +X bashcompinit && bashcompinit
+    complete -o nospace -C /usr/bin/terraform terraform
+fi
+
 say FINISH .profile
