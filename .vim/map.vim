@@ -10,6 +10,9 @@ inoremap <silent> jk <ESC>
 " 編集モード中の移動
 inoremap <C-a> <HOME>
 inoremap <C-e> <END>
+" * 検索で次の単語にジャンプしない
+nnoremap * *``
+nnoremap g* g*``
 
 " 不要なkeymapを無効化
 nnoremap <S-k> <Nop>
