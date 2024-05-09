@@ -15,7 +15,6 @@ inoremap <C-e> <END>
 nnoremap <S-k> <Nop>
 nnoremap ZQ <Nop>
 nnoremap Q <Nop>
-map q: :q
 vnoremap u <Nop>
 vnoremap U <Nop>
 
