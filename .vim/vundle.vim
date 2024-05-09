@@ -23,6 +23,7 @@ Plugin 'peitalin/vim-jsx-typescript'
 " Plugin 'Quramy/vim-js-pretty-template'
 Plugin 'jason0x43/vim-js-indent'
 Plugin 'pechorin/any-jump.vim'
+Plugin 'hashivim/vim-terraform'
 
 "" theme
 Plugin 'w0ng/vim-hybrid'
