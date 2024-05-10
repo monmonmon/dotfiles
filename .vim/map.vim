@@ -11,8 +11,8 @@ inoremap <silent> jk <ESC>
 inoremap <C-a> <HOME>
 inoremap <C-e> <END>
 " * 検索で次の単語にジャンプしない
-nnoremap * *``
-nnoremap g* g*``
+nnoremap <silent> * :let @/= '\<' . expand('<cword>') . '\>' <bar> set hls <cr>
+nnoremap <silent> g* :let @/=expand('<cword>') <bar> set hls <cr>
 
 " 不要なkeymapを無効化
 nnoremap <S-k> <Nop>
