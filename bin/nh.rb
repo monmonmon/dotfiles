@@ -60,7 +60,7 @@ Dir.chdir(title) do
     image_extension = match[2]
     image_url = "#{base_url}/#{image_number}.#{image_extension}"
     local_image_path = "%03d.%s" % [image_number, image_extension]
-    next if File.exists? local_image_path
+    next if File.exist? local_image_path
     puts "downloading #{image_url}"
     begin
       download image_url, local_image_path
