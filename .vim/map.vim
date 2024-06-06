@@ -23,10 +23,11 @@ vnoremap U <Nop>
 
 " Leader
 let mapleader = "\<Space>"
-nnoremap <Leader>w :wa<CR>
 nnoremap <Leader>d :bd<CR>
 nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>w :wa<CR>
 nnoremap <Leader>q :qa<CR>
+nnoremap <Leader>a :wqa<CR>
 nnoremap <silent> <Leader>vr :new ~/.vimrc<CR>    " .vimrcを開く
 nnoremap <silent> <Leader>r :source ~/.vimrc<CR>  " .vimrcの読み込み
 
