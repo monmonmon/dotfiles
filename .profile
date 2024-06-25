@@ -375,15 +375,15 @@ function swap () {
         \mv $tmpfile "$2"
     fi
 }
-function kireinisuru () {
-    if [ $# -le 0 -o ! -f "$1" ]; then
+function nocomment () {
+    if [ $# -le 0 ]; then
         return
     fi
-    comment='#'
-    if [ -n "$2" ]; then
-        comment="$2"
-    fi
-    egrep -v -e "^\s*${comment}" -e '^\s*$' "$1"
+    prefix='#'
+    # if [ -n "$2" ]; then
+    #     prefix="$2"
+    # fi
+    egrep -h -v -e "^\s*${prefix}" -e '^\s*$' $*
 }
 function opendir () {
     if [ $# -eq 1 -a -e "$1" ]; then
