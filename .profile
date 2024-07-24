@@ -189,7 +189,6 @@ alias mimicurl="curl \
 alias rak="rak -k 'log|tmp|assets' --nogroup --follow"
 alias da='direnv allow'
 alias mux=tmuxinator
-alias r=rails
 alias grep="grep --color=auto --exclude='*.swp' --exclude='.#*' --exclude='*.jpg' --exclude='*.jpeg' --exclude='*.gif' --exclude='*.png' --exclude='*.bmp' --exclude='*.pdf' --exclude='*.dump' --exclude-dir=.git --exclude-dir=.svn --exclude-dir=log --exclude-dir=tmp --exclude-dir=images --exclude-dir=node_modules --exclude-dir=vendor --exclude-dir=.next"
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
