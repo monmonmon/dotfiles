@@ -1,23 +1,6 @@
 #!/bin/bash
 set -e
 
-show_help() {
-	cat 1>&2 << EOS
-Usage: $0 [ -u ssh_username ]
-	-u: ssh username. If the username is same as local, this option is not needed.
-EOS
-	exit 1
-}
-
-while getopts "u:h" OPT
-do
-	case $OPT in
-		u) ssh_user=$OPTARG ;;
-		h) show_help ;;
-		?) show_help ;;
-	esac
-done
-
 ssh_user=ymdsmn
 
 port_check() {
