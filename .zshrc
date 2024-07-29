@@ -178,4 +178,9 @@ if __callable zoxide; then
     eval "$(zoxide init zsh)"
 fi
 
+# .zshrc.local
+if [ -f ~/.zshrc.local ]; then
+    . ~/.zshrc.local
+fi
+
 say FINISH .zshrc
