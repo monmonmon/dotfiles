@@ -640,10 +640,6 @@ if [ -d "$HOME/.pub-cache/bin" ]; then
     export PATH="$PATH":"$HOME/.pub-cache/bin"
 fi
 
-if [ -f ~/.profile.local ]; then
-    . ~/.profile.local
-fi
-
 # conda
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/monmon/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -662,6 +658,11 @@ unset __conda_setup
 if [ -f /usr/bin/terraform ]; then
     autoload -U +X bashcompinit && bashcompinit
     complete -o nospace -C /usr/bin/terraform terraform
+fi
+
+# .profile.local
+if [ -f ~/.profile.local ]; then
+    . ~/.profile.local
 fi
 
 say FINISH .profile
