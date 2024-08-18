@@ -69,7 +69,7 @@ PS1='\[\033[${COLOR}m\]\D{%m/%d_%H:%M}:\h:\W\$\[\033[0m\] '
 
 ### ALIASES ###
 say ALIASES
-alias ls='ls -FG'
+alias ls='/bin/ls -FG'
 if uname -s|grep -q Linux; then
     alias ls='ls -F --color=tty'
 fi
@@ -438,12 +438,13 @@ _git_cherry ()
 }
 # 全ての拡張属性を削除
 rmattr () {
-    if [ ! -e "$1" ]; then
-        echo :P
-        return
-    fi
-    for attr in $(xattr "$1"); do
-        xattr -d $attr "$1"
+    for f in $*; do
+        if [ -e "$f" ]; then
+            echo $f
+            for attr in $(xattr "$f"); do
+                xattr -d $attr "$f"
+            done
+        fi
     done
 }
 # パーミッションを644/755に
