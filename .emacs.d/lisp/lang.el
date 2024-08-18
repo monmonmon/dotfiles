@@ -149,14 +149,12 @@
 ;; slim-mode
 ;(custom-set-variables '(slim-indent-offset 4))
 
-
 ;; go-mode
 (add-to-list 'exec-path (expand-file-name "~/projects/go/bin"))
 (add-hook 'before-save-hook 'gofmt-before-save)
 (setq gofmt-command "goimports")
 (add-hook 'go-mode-hook (lambda ()
                           (local-set-key (kbd "M-") 'godef-jump)))
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 拡張子に紐付け
@@ -169,23 +167,14 @@
 		 ("\\.rst$" . rst-mode)
 		 ("\\.rst.txt$" . rst-mode)
 		 ("\\.org.txt$" . org-mode)
-		 ("\\.css\\(\\.erb\\)$" . css-mode)
-		 ("\\.less$" . less-mode)
-		 ("\\.scss\\(\\.erb\\)$" . scss-mode)
-		 ("\\.cgi$" . perl-mode)
-		 ("\\.wk$" . pukiwiki-mode)
 		 ("\\.md$" . markdown-mode)
 		 ("\\.m$" . objc-mode)
 		 ("\\.rake$" . ruby-mode)
 		 ("\\(Cap\\|Gem\\|Guard\\|Rake\\|Schema\\)file$" . ruby-mode)
-		 ("\\.coffee\\.erb$" . coffee-mode)
-		 ("\\.js\\.erb$" . javascript-mode)
-		 ("\\.csv\\.erb$" . ruby-mode)
 		 ("\\.erb$" . html-mode)
-		 ;; ("\\.html?$" . web-mode)
 		 ;; ("\\.erb$" . web-mode)
+		 ;; ("\\.html?$" . web-mode)
 		 ) auto-mode-alist))
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; テンプレート
@@ -194,8 +183,6 @@
 (setq auto-insert-alist
       (nconc '(("\\.html?$" . "template.html")
 	       ("\\.pl$" . "template.pl")
-	       ("\\.cgi$" . "template.pl")
-	       ;("\\.rb$" . "template.rb")
 	       ("\\.php$" . "template.php")
 	       ("\\.java$" . "template.java")
 	       ("\\.c$" . "template.c")
@@ -205,13 +192,11 @@
 	       ("\\.tex$" . "template.tex")
 	       ("\\.sh$" . "template.sh")
 	       ("\\.py$" . "template.py")
-	       ;; ("\\.js$" . "template.js")
 	       ("\\.md$" . "template.md")
 	       ("\\.m$" . "template.m")
 	       ("\\.swift$" . "template.swift")
 	       ) auto-insert-alist))
 (add-hook 'find-file-not-found-hooks 'auto-insert)
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; その他
