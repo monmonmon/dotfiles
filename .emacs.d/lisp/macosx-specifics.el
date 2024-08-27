@@ -8,7 +8,7 @@
 
 ;; font
 (when (member "Ricty" (font-family-list))
-  (add-to-list 'default-frame-alist '(font . "Ricty 14")))
+  (add-to-list 'default-frame-alist '(font . "Ricty 12")))
 
 ;; character code
 ;; http://pcweb.mycom.co.jp/column/osx/079/

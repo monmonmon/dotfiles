@@ -58,6 +58,7 @@
 		   (eq this-command 'isearch-printing-char)
 		   (eq this-command 'isearch-repeat-forward)
 		   (eq this-command 'isearch-repeat-backward)
+		   (eq this-command 'eval-last-sexp)
 		   )
     (message "%s" this-command)))
 (add-hook 'post-command-hook 'my-echo-command-name-hook)
