@@ -147,5 +147,8 @@ source ~/.vim/map.vim
 " filetype
 source ~/.vim/ft.vim
 
-" vundle
-source ~/.vim/vundle.vim
+" " vundle
+" source ~/.vim/vundle.vim
+
+" jetpack
+source ~/.vim/jetpack.vim

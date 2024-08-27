@@ -6,11 +6,12 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Shougo/vimproc.vim' " 非同期実行
+" <Leader>ig でインデントを可視化
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'slim-template/vim-slim'
+" Plugin 'digitaltoad/vim-pug'
+" Plugin 'slim-template/vim-slim'
 Plugin 'hail2u/vim-css3-syntax'
 Plugin 'ap/vim-css-color'
 Plugin 'cakebaker/scss-syntax.vim'
@@ -96,15 +97,9 @@ Plugin 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 1 " Add spaces after comment delimiters by default
 let g:NERDCompactSexyComs = 1 " Use compact syntax for prettified multi-line comments
 let g:NERDDefaultAlign = 'left' " Align line-wise comment delimiters flush left instead of following code indentation
-let g:NERDAltDelims_java = 1 " Set a language to use its alternate delimiters by default
 let g:NERDCommentEmptyLines = 1 " Allow commenting and inverting empty lines
 let g:NERDTrimTrailingWhitespace = 1 " Enable trimming of trailing whitespace when uncommenting
-" Enable NERDCommenterToggle to check all selected lines is commented or not
-let g:NERDToggleCheckAllLines = 1
-" " Add your own custom formats or override the defaults
-" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-
-let g:NERDCreateDefaultMappings = 0
+let g:NERDCreateDefaultMappings = 0 " デフォルトのmappingをキャンセル
 nmap <leader>c <plug>NERDCommenterComment
 xmap <leader>c <plug>NERDCommenterComment
 nmap <leader>i <plug>NERDCommenterInvert
