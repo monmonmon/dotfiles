@@ -1,7 +1,6 @@
-;; http://d.hatena.ne.jp/IMAKADO/20091209/1260323922
-;; copied from rails-lib.el
+;; https://imakado-2.hatenadiary.org/entry/20091209/1260323922
 (defun decamelize (string)
-  "Convert CamelCaseString to camel_case_string."
+  "Convert CamelCaseString to snake_case_string."
   (let ((case-fold-search nil))
     (downcase
      (replace-regexp-in-string
@@ -9,19 +8,20 @@
       (replace-regexp-in-string
        "\\([a-z\\d]\\)\\([A-Z]\\)" "\\1_\\2"
        string)))))
-(defun camelcase-snakecase-region (s e)
+
+(defun camelcase-region (s e)
   (interactive "r")
   (let ((buf-str (buffer-substring-no-properties s e))
         (case-fold-search nil))
-    (cond
-     ((string-match "_" buf-str)
-      (let* ((los (mapcar 'capitalize (split-string buf-str "_" t)))
-             (str (mapconcat 'identity los "")))
-        ;; snake case to camel case
-        (delete-region s e)
-        (insert str)))
-     (t
+    (let* ((los (mapcar 'capitalize (split-string buf-str "_" t)))
+           (str (mapconcat 'identity los "")))
+      (delete-region s e)
+      (insert str))))
+
+(defun snakecase-region (s e)
+  (interactive "r")
+  (let ((buf-str (buffer-substring-no-properties s e))
+        (case-fold-search nil))
       (let* ((str (decamelize buf-str)))
-        ;; snake case to camel case
         (delete-region s e)
-        (insert str))))))
+        (insert str))))

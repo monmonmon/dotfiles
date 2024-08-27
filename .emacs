@@ -43,7 +43,8 @@
 (when (window-system)
   (set-frame-size
     (selected-frame)
-    120 ; width
+    ;120 ; width
+	160
     (- (/ (display-pixel-height) (frame-char-height)) 2) ; height
     )
   (set-frame-position
