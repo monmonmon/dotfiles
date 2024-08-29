@@ -19,7 +19,7 @@ if test -z "$asin_isbn"; then
 fi
 
 amazonurl="https://www.amazon.co.jp/dp/$asin_isbn"
-echo $amazonurl
+echo "$amazonurl"
 if which pbcopy > /dev/null; then
     echo "$amazonurl\c" | pbcopy
 fi

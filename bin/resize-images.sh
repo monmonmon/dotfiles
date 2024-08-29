@@ -6,21 +6,21 @@ while getopts "dh" opt; do
         d)  # dryrun
             dryrun=1
             ;;
-        h)  # help
-            echo "Usage: $(basename $0) [-d] [-h]" >&2
+        *)  # help
+            echo "Usage: $(basename "$0") [-d] [-h]" >&2
             exit
             ;;
     esac
 done
-shift $(($OPTIND - 1))
+shift $((OPTIND - 1))
 
 size=1200
 for f in *; do
     if file -b --mime-type "$f" | cut -d/ -f1 | grep -vq image; then
         continue
     fi
-    w=$(identify -format %w $f)
-    if [ $w -gt $size ]; then
+    w=$(identify -format %w "$f")
+    if [ "$w" -gt "$size" ]; then
         echo "$f"
         test -n "$dryrun" && continue
         g="1.$f"

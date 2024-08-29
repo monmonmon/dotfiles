@@ -14,7 +14,7 @@ do
     case $OPT in
         i) IDENTITY_FILE=$OPTARG
            ;;
-        h) usage_exit
+        *) usage_exit
            ;;
     esac
 done
@@ -22,13 +22,13 @@ shift $((OPTIND - 1))
 
 if [ -n "$IDENTITY_FILE" ]; then
     tempfile=$(mktemp)
-    cat <<EOF > $tempfile
+    cat <<EOF > "$tempfile"
 #!/bin/sh
 exec ssh -oIdentityFile=${IDENTITY_FILE} "\$@"
 EOF
-    chmod a+x $tempfile
-    GIT_SSH=$tempfile git $@
-    rm -f $tempfile
+    chmod a+x "$tempfile"
+    GIT_SSH=$tempfile git "$@"
+    rm -f "$tempfile"
 else
-    git $@
+    git "$@"
 fi

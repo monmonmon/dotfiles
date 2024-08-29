@@ -19,12 +19,12 @@ main_or_master_branch () {
 }
 
 usage () {
-    echo "Usage: $(basename $0) [-d] [-m] [-h] [<branch 1> [<branch 2>]] " >&2
+    echo "Usage: $(basename "$0") [-d] [-m] [-h] [<branch 1> [<branch 2>]] " >&2
     exit
 }
 
 while getopts "dmh" opt; do
-    case $opt in
+    case "$opt" in
         d)    # develop
             b1=$(develop_branch)
             b2=$(current_branch)
@@ -33,12 +33,12 @@ while getopts "dmh" opt; do
             b1=$(main_or_master_branch)
             b2=$(current_branch)
             ;;
-        h)  # help
+        *)  # help
             usage
             ;;
     esac
 done
-shift $(($OPTIND - 1))
+shift $((OPTIND - 1))
 
 if [ -z "$b1$b2" ]; then
     if [ $# -eq 0 ]; then
@@ -55,7 +55,7 @@ if [ -z "$b1$b2" ]; then
     fi
 fi
 
-if [ -z "$b1$b2" -o "$b1" = "$b2" ]; then
+if [ -z "$b1$b2" ] || [ "$b1" = "$b2" ]; then
     echo ":p"
     exit
 fi
@@ -63,17 +63,17 @@ fi
 git_log_format='format:%h %ad [%an]: %s'
 git_log_date_format='format:%FT%R:%S'
 
-if git log $b1..$b2 | grep -wq commit; then
+if git log "$b1".."$b2" | grep -wq commit; then
     echo "### $b1..$b2 ###"
     echo
-    git log --format="$git_log_format" --date="$git_log_date_format" $b1..$b2 | cat
+    git log --format="$git_log_format" --date="$git_log_date_format" "$b1".."$b2" | cat
     echo
     echo
 fi
 
-if git log $b2..$b1 | grep -wq commit; then
+if git log "$b2".."$b1" | grep -wq commit; then
     echo "### $b2..$b1 ###"
     echo
-    git log --format="$git_log_format" --date="$git_log_date_format" $b2..$b1 | cat
+    git log --format="$git_log_format" --date="$git_log_date_format" "$b2".."$b1" | cat
     echo
 fi
