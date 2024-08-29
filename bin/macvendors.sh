@@ -4,7 +4,7 @@ set -e
 
 if [ $# -eq 0 ]; then
     echo "find vendor names from mac addresses"
-    echo "Usage: $(basename $0) <macaddr>..."
+    echo "Usage: $(basename "$0") <macaddr>..."
     exit 1
 fi
 
@@ -12,13 +12,13 @@ url=https://macvendors.com/query
 
 while [ -n "$1" ]; do
     mac=$1
-    if echo $mac | grep '^\([0-9a-f]\{2\}[:-]\?\)\{5\}[0-9a-f]\{2\}$' 2>&1 > /dev/null; then
-        addr=$(echo $mac | sed 's/[:-]//g')
+    if echo "$mac" | grep '^\([0-9a-f]\{2\}[:-]\?\)\{5\}[0-9a-f]\{2\}$' > /dev/null 2>&1; then
+        addr="${mac//:/}"
         query="$url/$addr"
-        vendor=$(curl -s $query)
-        if echo $vendor | grep DOCTYPE 2>&1 > /dev/null; then
+        vendor=$(curl -s "$query")
+        if echo "$vendor" | grep DOCTYPE > /dev/null 2>&1; then
             # seems to have requested too many
-            echo $vendor
+            echo "$vendor"
             echo "Quitting..."
             break
         fi
