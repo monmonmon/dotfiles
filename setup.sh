@@ -55,12 +55,12 @@ done
 # git submodule
 git submodule update -i
 
-# vimのセットアップ
-if [ "$vim_vundle" = "1" -a ! -d ~/.vim/bundle/emmet-vim ]; then
-    set -e
-    # Vundleパッケージをインストール
-    vim +PluginInstall +qall
-    # vimprocをmake
-    ( cd ~/.vim/bundle/vimproc.vim; make )
-    set +e
-fi
+# # vimのセットアップ
+# if [ "$vim_vundle" = "1" -a ! -d ~/.vim/bundle/emmet-vim ]; then
+#     set -e
+#     # Vundleパッケージをインストール
+#     vim +PluginInstall +qall
+#     # vimprocをmake
+#     ( cd ~/.vim/bundle/vimproc.vim; make )
+#     set +e
+# fi
