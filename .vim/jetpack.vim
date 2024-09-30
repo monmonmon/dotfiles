@@ -3,7 +3,7 @@ call jetpack#begin()
 Jetpack 'tani/vim-jetpack', {'opt': 1} "bootstrap
 
 " realtime linting
-Jetpack 'https://github.com/dense-analysis/ale'
+" Jetpack 'https://github.com/dense-analysis/ale'
 
 " css中の色名やカラーコードをその色でハイライト
 Jetpack 'ap/vim-css-color'
