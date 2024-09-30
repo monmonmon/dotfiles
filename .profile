@@ -399,6 +399,7 @@ function mkdircd () {
     mkdir -p "$*" && cd "$*"
 }
 alias mkdirr=mkdircd
+alias mmkdir=mkdircd
 # mainとdevelopを互いにマージしてpush
 function gkk () {
     original_branch=$(git symbolic-ref --short HEAD)
@@ -488,7 +489,7 @@ compress-files () {
 # 体重からBMIを計算
 bmi () {
     if [ -n "$1" ]; then
-        printf "%.3f\n" $(($1 / 1.76 ** 2))
+        printf "%.1f\n" $(($1 / 1.76 ** 2))
     fi
 }
 # 0詰めした数字列を生成
