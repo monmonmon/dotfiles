@@ -45,11 +45,12 @@
     (selected-frame)
     ;120 ; width
 	160
-    (- (/ (display-pixel-height) (frame-char-height)) 2) ; height
+    (- (/ (display-pixel-height) (frame-char-height)) 4) ; height
     )
   (set-frame-position
     (selected-frame)
-    (- (- (display-pixel-width) (frame-native-width)) 10) ; left
+    ;(- (- (display-pixel-width) (frame-native-width)) 10) ; left
+    (- (- (display-pixel-width) (frame-native-width)) 0) ; left
     0 ; top
     )
   )
