@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+
+import sqlite3
+import os
+import sys
+
+def getWordFromArgs():
+    argv = sys.argv[1:]
+    for word in argv:
+        if len(word) < 2 or word == 'ej':
+            continue
+        return word
+
+def main():
+    word = getWordFromArgs()
+    if not word:
+        print(':P')
+        return
+
+    dbfilepath = os.path.expanduser('~/lib/ejdict.sqlite3')
+    if not os.path.exists(dbfilepath):
+        print('sqlite3 file doesn\'t exist: {}'.format(dbfilepath))
+        return
+
+    con = sqlite3.connect(dbfilepath)
+    cur = con.cursor()
+    res = cur.execute('select word, mean from items where word like ?', (word + '%',))
+    while True:
+        row = res.fetchone()
+        if not row:
+            break
+        descriptions = row[1].split(' / ')
+        print(row[0])
+        for description in descriptions:
+            print('\t' + description)
+    cur.close()
+    con.close()
+
+if __name__ == '__main__':
+    main()
