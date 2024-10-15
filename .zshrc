@@ -179,6 +179,11 @@ if __callable zoxide; then
     eval "$(zoxide init zsh)"
 fi
 
+# k8s
+if __callable kubectl; then
+    source <(kubectl completion zsh)
+fi
+
 # .zshrc.local
 if [ -f ~/.zshrc.local ]; then
     . ~/.zshrc.local
