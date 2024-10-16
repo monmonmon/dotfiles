@@ -570,7 +570,12 @@ function pz () {
 }
 
 # direnv
-__callable direnv && eval "$(direnv hook $(basename $SHELL))"
+if __callable direnv; then
+    eval "$(direnv hook $(basename $SHELL))"
+    if [ -f ~/.envrc ]; then
+        direnv allow
+    fi
+fi
 
 # brewfile
 # https://homebrew-file.readthedocs.io/en/latest/brew-wrap.html

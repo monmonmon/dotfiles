@@ -19,7 +19,6 @@ precmd () { vcs_info }
 # color
 export FGCOLOR=040
 export BGCOLOR=256
-direnv allow
 if [ -r ~/.color ]; then
     eval $(grep '^\(F\|B\)GCOLOR=[0-9]\{3\}$' ~/.color)
 fi
