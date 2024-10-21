@@ -114,7 +114,7 @@ alias glg='git log --graph'
 alias gll="git log \$(git tag | tail -1)..HEAD --pretty='format:%h %ad [%an]: %s' --date='format:%y/%m/%d_%H:%M:%S' | cat; echo"
 alias gsh='git show'
 gshs () { test -n "$1" && n=$1 || n=0; git show stash@\{$n\}; }
-alias gt='git tag --contains'
+alias gt='git tag'
 alias gstash='git stash'
 alias gsl='git stash list | cat'
 alias gsp='git stash pop'
