@@ -535,7 +535,7 @@ fi
 # anyenv
 if ! __callable rbenv && [ -d ~/.anyenv ]; then
     say anyenv
-    eval "$(anyenv init -)"
+    eval "$(anyenv init - --no-rehash)"
 fi
 
 # composer
