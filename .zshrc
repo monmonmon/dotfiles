@@ -188,4 +188,9 @@ if [ -f ~/.zshrc.local ]; then
     . ~/.zshrc.local
 fi
 
+# zcompile
+if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
+    zcompile ~/.zshrc
+fi
+
 say FINISH .zshrc
