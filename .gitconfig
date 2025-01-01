@@ -8,19 +8,6 @@
 	compression = -1
 	#pager = less -Mij5
 	pager = less -R
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[diff]
-	tool = vimdiff
-[difftool]
-	prompt = false
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[merge]
-	# --no-ff: no fast foward
-	#ff = false
 [alias]
 	co = checkout
 	st = status -sb
@@ -36,6 +23,19 @@
 	sb = show-branch --all
 	sw = switch
 	ch = cherry -v
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[merge]
+	# --no-ff: no fast foward
+	#ff = false
 [push]
 	default = current
 [commit]
