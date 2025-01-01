@@ -229,20 +229,6 @@ alias sortl='sort|less'
 alias brewup='time ( brew update && brew upgrade && brew upgrade --cask && brew cleanup )'
 alias aptup='time ( sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y )'
 alias bomify='nkf --oc=utf-8-bom --overwrite'
-rate() {
-    if [ -z "$ALPHAVANTAGE_APIKEY" ]; then
-        echo API key is missing :P
-        return
-    fi
-    from=${1:-usd}
-    to=${2:-jpy}
-    echo $from $to
-    curl -s "https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=$from&to_currency=$to&apikey=$ALPHAVANTAGE_APIKEY" | jq -r '.["Realtime Currency Exchange Rate"]["5. Exchange Rate"]'
-}
-safefilename() {
-    test $# -eq 0 && return
-    echo "$*" | tr '\/:*?"<>|' '￥／：＊？” ＜＞｜'
-}
 alias uncolor='sed -r "s/\x1B\[([0-9]{1,3}((;[0-9]{1,3})*)?)?[m|K]//g"'
 
 ### SHELL FUNCTIONS ###
@@ -323,7 +309,11 @@ function timer () {
         while [ "$t1" -ge `date +%s` ]; do
             echo -ne "$(($t1 - $(date +%s)))     \r"
         done
-        echo "\a"
+        if __callable alert; then
+            alert 'done!'
+        else
+            echo "\a"
+        fi
     else
         echo "Usage: $0 <number of seconds>"
     fi
@@ -518,6 +508,22 @@ hex () {
 # dockerコンテナに振られたIPをリスト
 dip () {
     ( docker-compose ps -q 2>/dev/null || docker ps -q ) | xargs docker inspect | jq -r '.[] | "\([.NetworkSettings.Networks[].IPAddress] | join(", "))\t\(.Name | ltrimstr("/"))"'
+}
+# 為替レートを表示
+rate() {
+    if [ -z "$ALPHAVANTAGE_APIKEY" ]; then
+        echo API key is missing :P
+        return
+    fi
+    from=${1:-usd}
+    to=${2:-jpy}
+    echo $from $to
+    curl -s "https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=$from&to_currency=$to&apikey=$ALPHAVANTAGE_APIKEY" | jq -r '.["Realtime Currency Exchange Rate"]["5. Exchange Rate"]'
+}
+# 文字列からファイル名に使えない文字を除去する
+safefilename() {
+    test $# -eq 0 && return
+    echo "$*" | tr '\/:*?"<>|' '￥／：＊？” ＜＞｜'
 }
 
 ### MISC ###
