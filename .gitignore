@@ -1,11 +1,8 @@
-/.vim/view
-/.vim/bundle/*
-!/.vim/bundle/Vundle.vim
-cache
 /bin/node_modules
+# emacs
 /.emacs.d/.emacs.desktop
 /.emacs.d/.emacs.desktop.lock
-
+# vim jetpack
 /.vim/pack/jetpack/opt/*
 !/.vim/pack/jetpack/opt/_/
 !/.vim/pack/jetpack/opt/available_packages.json
