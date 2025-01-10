@@ -5,3 +5,8 @@ cache
 /bin/node_modules
 /.emacs.d/.emacs.desktop
 /.emacs.d/.emacs.desktop.lock
+
+/.vim/pack/jetpack/opt/*
+!/.vim/pack/jetpack/opt/_/
+!/.vim/pack/jetpack/opt/available_packages.json
+!/.vim/pack/jetpack/opt/vim-jetpack/
