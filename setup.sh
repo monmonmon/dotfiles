@@ -6,7 +6,7 @@ while getopts "bvh" opt; do
             backup=1
             ;;
         v)
-            vim_vundle=1
+            vim_jetpack=1
             ;;
         h)
             echo "Usage: $0 [-b] [-h]" >&2
@@ -55,12 +55,7 @@ done
 # git submodule
 git submodule update -i
 
-# # vimのセットアップ
-# if [ "$vim_vundle" = "1" -a ! -d ~/.vim/bundle/emmet-vim ]; then
-#     set -e
-#     # Vundleパッケージをインストール
-#     vim +PluginInstall +qall
-#     # vimprocをmake
-#     ( cd ~/.vim/bundle/vimproc.vim; make )
-#     set +e
-# fi
+# vim-jetpackのパッケージをインストール
+if [ "$vim_jetpack" = "1" -a ! -d ~/.vim/pack/jetpack/opt/nerdcommenter ]; then
+    vim +JetpackSync +qall
+fi
