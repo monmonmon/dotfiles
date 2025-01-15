@@ -199,10 +199,10 @@ else
     alias top='top -d2'
 fi
 alias d=docker
-alias dc=docker-compose
+alias dc='docker compose'
 alias de='docker exec'
 alias dp='docker ps -a'
-alias dcp='docker-compose ps -a'
+alias dcp='docker compose ps -a'
 alias ds='docker search'
 alias htb='sudo openvpn ~/security/monmonmon.ovpn'
 if which colordiff > /dev/null 2>&1; then
@@ -507,7 +507,7 @@ hex () {
 }
 # dockerコンテナに振られたIPをリスト
 dip () {
-    ( docker-compose ps -q 2>/dev/null || docker ps -q ) | xargs docker inspect | jq -r '.[] | "\([.NetworkSettings.Networks[].IPAddress] | join(", "))\t\(.Name | ltrimstr("/"))"'
+    ( docker compose ps -q 2>/dev/null || docker ps -q ) | xargs docker inspect | jq -r '.[] | "\([.NetworkSettings.Networks[].IPAddress] | join(", "))\t\(.Name | ltrimstr("/"))"'
 }
 # 為替レートを表示
 rate() {
