@@ -230,6 +230,7 @@ alias brewup='time ( brew update && brew upgrade && brew upgrade --cask && brew 
 alias aptup='time ( sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y )'
 alias bomify='nkf --oc=utf-8-bom --overwrite'
 alias uncolor='sed -r "s/\x1B\[([0-9]{1,3}((;[0-9]{1,3})*)?)?[m|K]//g"'
+alias oo='open -a /usr/local/Cellar/emacs-plus@27/27.2/Emacs.app'
 
 ### SHELL FUNCTIONS ###
 say SHELL FUNCTIONS
