@@ -1,6 +1,3 @@
-[submodule "lib/peda"]
-	path = lib/peda
-	url = https://github.com/longld/peda.git
 [submodule ".vim/pack/jetpack/opt/vim-jetpack"]
 	path = .vim/pack/jetpack/opt/vim-jetpack
 	url = git@github.com:tani/vim-jetpack.git
