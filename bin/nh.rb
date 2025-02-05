@@ -8,7 +8,7 @@ require "net/http"
 def get(uri)
   response = Net::HTTP.get_response(URI.parse(uri))
   unless response.code == "200"
-    fail "failed to download #{uri}"
+    fail "failed to download #{uri}. response.code=#{response.code}"
   end
   response.body
 end
