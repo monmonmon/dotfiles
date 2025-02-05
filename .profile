@@ -674,9 +674,9 @@ if [ -f /usr/bin/terraform ]; then
     complete -o nospace -C /usr/bin/terraform terraform
 fi
 
-# .profile.local
-if [ -f ~/.profile.local ]; then
-    . ~/.profile.local
+# .profile.<hostname>
+if [ -f ~/.profile.$(hostname) ]; then
+    . ~/.profile.$(hostname)
 fi
 
 say FINISH .profile

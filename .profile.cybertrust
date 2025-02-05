@@ -1,0 +1,5 @@
+export GOPATH=/usr/local/go
+export GOPRIVATE=gitlab.irodori.studio
+export PATH=$GOPATH/bin:$PATH
+alias dp='docker compose ps -a'
+alias dpp='docker ps -a'
