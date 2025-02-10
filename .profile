@@ -539,10 +539,18 @@ if __callable brew && [ -d $(brew --prefix)/etc/bash_completion.d ]; then
     . $(brew --prefix)/etc/bash_completion.d
 fi
 
-# anyenv
-if ! __callable rbenv && [ -d ~/.anyenv ]; then
-    say anyenv
-    eval "$(anyenv init - --no-rehash)"
+# # anyenv
+# if ! __callable rbenv && [ -d ~/.anyenv ]; then
+#     say anyenv
+#     eval "$(anyenv init - --no-rehash)"
+# fi
+
+# asdf
+if __callable asdf; then
+    say asdf
+    PATH="$HOME/.asdf/shims:$PATH"
+    # bash completion
+    # . <(asdf completion bash)
 fi
 
 # composer
@@ -654,19 +662,19 @@ if [ -d "$HOME/.pub-cache/bin" ]; then
     export PATH="$PATH":"$HOME/.pub-cache/bin"
 fi
 
-# conda
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/monmon/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/monmon/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/monmon/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/monmon/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+# # conda
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/Users/monmon/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/Users/monmon/anaconda3/etc/profile.d/conda.sh" ]; then
+#         . "/Users/monmon/anaconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/Users/monmon/anaconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
 
 # terraform
 if [ -f /usr/bin/terraform ]; then
