@@ -220,7 +220,7 @@ o () {
     if [ $# -eq 0 ]; then
         open .
     else
-        open $1
+        open "$*"
     fi
 }
 alias p1='ping 1.1.1.1'
