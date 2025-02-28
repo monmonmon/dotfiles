@@ -21,12 +21,11 @@ basedir=$(cd $(dirname $0); pwd)
 cd "$basedir"
 
 # ホームディレクトリに設置するファイルリストを作成
-dot_files=$(ls -A | grep '^\.' | grep -vw "^\.\(DS_Store\|git\|gitignore\|gitmodules\)$")
+dot_files=$(ls -A | grep '^\.' | grep -vw "^\.\(DS_Store\|git\|gitignore\|gitmodules\|ssh_config\)$")
 visible_files=$(ls -d bin lib)
 
 # ドットファイルのシンボリックリンク作成
 for f in $dot_files $visible_files; do
-# for f in hoge hoe; do
     from_path=$basedir/"$f"
     target_path=~/"$f"
     if [ ! -e "$target_path" ]; then

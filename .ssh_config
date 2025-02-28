@@ -1,0 +1,63 @@
+Host github.com
+    HostName github.com
+    IdentityFile ~/.ssh/id_rsa_github
+
+# i-05bb0b52308903786 shokutsu-api 復活させようとしたやつっぽい
+Host shk
+    HostName 13.113.231.20
+    User ec2-user
+    IdentityFile ~/.ssh/mon-aws.pem
+    StrictHostKeyChecking no
+    UserKnownHostsFile=/dev/null
+
+# irodori
+Host gitlab.irodori.studio
+    User monmonmon
+    Hostname gitlab.irodori.studio
+
+Host irodori-gate
+    Hostname 59.158.57.249
+    User ymdsmn
+    IdentityFile ~/.ssh/id_rsa
+    ForwardAgent yes
+    ServerAliveInterval 60
+Host bastion-dev
+    Hostname 10.2.110.55
+    User ymdsmn
+    ProxyJump irodori-gate
+    ForwardAgent yes
+
+# isucon14
+Host isucon14-1
+    HostName 57.180.168.65
+    User ubuntu
+    IdentityFile ~/.ssh/isucon14_key
+    StrictHostKeyChecking no
+    UserKnownHostsFile=/dev/null
+    RequestTTY yes
+    ForwardAgent yes
+    RemoteCommand sudo su - isucon -c 'cd /home/isucon/webapp/nodejs; $SHELL -l'
+Host isucon14-2
+    HostName 3.112.181.189
+    User ubuntu
+    IdentityFile ~/.ssh/isucon14_key
+    StrictHostKeyChecking no
+    UserKnownHostsFile=/dev/null
+    RequestTTY yes
+    RemoteCommand sudo su - isucon -c 'cd /home/isucon/webapp/nodejs; $SHELL -l'
+Host isucon14-3
+    HostName 52.192.235.32
+    User ubuntu
+    IdentityFile ~/.ssh/isucon14_key
+    StrictHostKeyChecking no
+    UserKnownHostsFile=/dev/null
+    RequestTTY yes
+    RemoteCommand sudo su - isucon -c 'cd /home/isucon/webapp/nodejs; $SHELL -l'
+# Host isucon11-bench
+#     HostName 35.78.16.203
+#     User ubuntu
+#     IdentityFile ~/.ssh/isucon14_key
+#     StrictHostKeyChecking no
+#     UserKnownHostsFile=/dev/null
+#     RequestTTY yes
+#     RemoteCommand sudo su - isucon -c 'cd /home/isucon/webapp/nodejs; $SHELL -l'
