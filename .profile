@@ -231,6 +231,7 @@ alias aptup='time ( sudo apt update && sudo apt upgrade -y && sudo apt autoremov
 alias bomify='nkf --oc=utf-8-bom --overwrite'
 alias uncolor='sed -r "s/\x1B\[([0-9]{1,3}((;[0-9]{1,3})*)?)?[m|K]//g"'
 alias oo='open -a /usr/local/Cellar/emacs-plus@27/27.2/Emacs.app'
+alias tarr='tar --no-xattrs --no-mac-metadata'
 
 ### SHELL FUNCTIONS ###
 say SHELL FUNCTIONS
