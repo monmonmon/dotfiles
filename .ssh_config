@@ -26,6 +26,11 @@ Host bastion-dev
     User ymdsmn
     ProxyJump irodori-gate
     ForwardAgent yes
+Host devops
+    Hostname 10.42.15.23
+    User ymdsmn
+    ProxyJump bastion-dev
+    ForwardAgent yes
 
 # isucon14
 Host isucon14-1
