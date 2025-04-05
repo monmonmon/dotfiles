@@ -593,6 +593,11 @@ if __callable direnv; then
     fi
 fi
 
+# ngrok shell completions
+if command -v ngrok &>/dev/null; then
+  eval "$(ngrok completion)"
+fi
+
 # brewfile
 # https://homebrew-file.readthedocs.io/en/latest/brew-wrap.html
 if __callable brew && [ -x $(brew --prefix)/bin/brew -a -f $(brew --prefix)/etc/brew-wrap ]; then
