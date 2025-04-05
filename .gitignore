@@ -6,3 +6,7 @@
 /.vim/pack/jetpack/opt/*
 !/.vim/pack/jetpack/opt/_/
 !/.vim/pack/jetpack/opt/vim-jetpack/
+# .config
+/.config
+!/.config/alacritty
+!/.config/gh

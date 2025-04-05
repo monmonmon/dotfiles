@@ -1,0 +1,24 @@
+# https://alacritty.org/config-alacritty.html
+[general]
+working_directory = "~/Downloads"
+
+[window]
+dimensions = { columns = 180, lines = 97 }
+position = { x = 1800, y = 0 }
+option_as_alt = "OnlyLeft"
+dynamic_title = true
+decorations_theme_variant = "Light"
+
+[scrolling]
+history = 100000
+
+[colors]
+
+[selection]
+save_to_clipboard = true
+
+[keyboard]
+bindings = [
+	{ key = "Enter", mods = "Command", action = "ToggleSimpleFullscreen" },
+	{ key = "¥", chars = "\\" },
+]
