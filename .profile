@@ -14,7 +14,7 @@ say START .profile
 
 ### PATH / MANPATH ###
 say PATH / MANPATH
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export PATH=$HOME/bin:$HOME/.local/bin:/opt/homebrew/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 export MANPATH=/usr/share/man
 if __callable brew && test -d /usr/local/opt/coreutils; then
     # coreutils
@@ -591,6 +591,11 @@ if __callable direnv; then
     if [ -f ~/.envrc ]; then
         direnv allow
     fi
+fi
+
+# ngrok shell completions
+if command -v ngrok &>/dev/null; then
+  eval "$(ngrok completion)"
 fi
 
 # brewfile

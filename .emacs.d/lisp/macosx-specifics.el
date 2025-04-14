@@ -7,8 +7,12 @@
 (setq mac-option-modifier nil)
 
 ;; font
-(when (member "Ricty" (font-family-list))
-  (add-to-list 'default-frame-alist '(font . "Ricty 12")))
+(when (member "Ricty Diminished" (font-family-list))
+  (add-to-list 'default-frame-alist '(font . "Ricty Diminished 12")))
+;; (when (member "HackGen" (font-family-list))
+;;   (add-to-list 'default-frame-alist '(font . "HackGen 12")))
+;; (when (member "Moralerspace Neon HWJPDOC" (font-family-list))
+;;   (add-to-list 'default-frame-alist '(font . "Moralerspace Neon HWJPDOC 12")))
 
 ;; character code
 ;; http://pcweb.mycom.co.jp/column/osx/079/
