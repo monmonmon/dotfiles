@@ -11,14 +11,25 @@ for g in */.git; do
     echo "### $dir"
     cd $basedir/$dir
     repo=$(git rev-parse --abbrev-ref HEAD)
-    if [ $repo != master -a $repo != main ]; then
+    # main / master ブランチかどうかチェック
+    if [ $repo != main -a $repo != master ]; then
         echo "# $dir: skip non-master branch ($repo)"
         skipped=(${skipped[@]} $dir)
         continue
     fi
+    # git pull
     if ! git pull; then
         echo "# $dir: failed to git pull"
         failed=(${failed[@]} $dir)
+        continue
+    fi
+    # remote を掃除
+    if ! git remote update --prune; then
+        echo "# $dir: failed to update remote"
+    fi
+    # git submodule update
+    if ! git submodule update; then
+        echo "# $dir: failed to update remote"
     fi
 done
 
