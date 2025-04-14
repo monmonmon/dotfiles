@@ -1,4 +1,4 @@
-### PREFACE ###
+jk## PREFACE ###
 umask 022
 mesg n || true
 
@@ -526,6 +526,16 @@ rate() {
 safefilename() {
     test $# -eq 0 && return
     echo "$*" | tr '\/:*?"<>|' '￥／：＊？” ＜＞｜'
+}
+grr() {
+    if [ $# -ne 1 ]; then
+        return
+    elif ! ( echo "$1" | grep -q '^remotes/origin/' ); then
+        return
+    else
+        b="${1#remotes/origin/}"
+        git co -b "$b" "$1"
+    fi
 }
 
 ### MISC ###
