@@ -537,6 +537,12 @@ grr() {
         git co -b "$b" "$1"
     fi
 }
+dpkgl() {
+    if [ $# -ne 1 ]; then
+        return
+    fi
+    dpkg -L $1 | xargs -I{} sh -c '[ -f "{}" ] && echo "{}"'
+}
 
 ### MISC ###
 say MISC
