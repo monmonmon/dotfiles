@@ -46,6 +46,7 @@ au BufRead,BufNewFile *.twig set filetype=html
 au BufRead,BufNewFile tsconfig.json set filetype=javascript
 au BufRead,BufNewFile *.tsx,*.jsx set filetype=typescriptreact
 au BufRead,BufNewFile .profile,*.sh,*.bash set filetype=bash
+au BufRead,BufNewFile Dockerfile* set filetype=dockerfile
 
 " 拡張子に対応するテンプレートで新規ファイルを初期化
 au BufNewFile *.html 0r $HOME/lib/template.html
