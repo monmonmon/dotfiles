@@ -666,12 +666,6 @@ fi
 #     export JAVA_HOME=$(dirname $(dirname $(update-alternatives --list java)))
 # fi
 
-# cargo
-if [ -f ~/.cargo/env ]; then
-    . "$HOME/.cargo/env"
-    export CARGO_NET_GIT_FETCH_WITH_CLI=true
-fi
-
 # flutter (~/flutter/bin)
 if [ -d ~/flutter/bin ]; then
     export PATH="$PATH:$HOME/flutter/bin"
