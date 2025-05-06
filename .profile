@@ -100,7 +100,7 @@ alias mem='top -stats command,rsize,vsize -o rsize'
 alias ehe="find . \( -name .DS_Store -o -name '._*' \)"
 alias ehehe="find . \( -name .DS_Store -o -name '._*' -o -name Thumbs.db \) -print -execdir touch -r . /tmp/ehehe \; -execdir rm {} \; -execdir touch -r /tmp/ehehe . \;"
 if __callable ss; then
-    alias np="ss -ltn"
+    alias np="ss -tuln"
 else
     alias np="netstat -an | grep LISTEN | grep -vw -e '^unix' -e '^tcp6'"
 fi
