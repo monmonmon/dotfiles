@@ -1,4 +1,4 @@
-jk## PREFACE ###
+## PREFACE ###
 umask 022
 mesg n || true
 
