@@ -530,10 +530,10 @@ safefilename() {
 grr() {
     if [ $# -ne 1 ]; then
         return
-    elif ! ( echo "$1" | grep -q '^remotes/origin/' ); then
+    elif ! ( echo "$1" | grep -q '^\(remotes/\)\?origin/' ); then
         return
     else
-        b="${1#remotes/origin/}"
+        b=$(echo "$1" | sed 's:^remotes/::' | sed 's:^origin/::')
         git co -b "$b" "$1"
     fi
 }
