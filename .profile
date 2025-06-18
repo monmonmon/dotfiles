@@ -107,7 +107,7 @@ fi
 alias g='git'
 alias gb='git br'
 alias gba='git br -a'
-alias gs='git status -sb && git stash list|cat'
+alias gs='( git status -sb && git stash list | cat )'
 alias gl='git log --stat'
 alias gl1="git log --format='format:%h %ad [%an]: %s' --date='format:%y/%m/%d_%H:%M:%S'"
 alias glg='git log --graph'
