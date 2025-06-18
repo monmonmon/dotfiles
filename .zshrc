@@ -183,9 +183,9 @@ if __callable kubectl; then
     source <(kubectl completion zsh)
 fi
 
-# .zshrc.local
-if [ -f ~/.zshrc.local ]; then
-    . ~/.zshrc.local
+# .zshrc.<hostname>
+if [ -f ~/.zshrc.$(hostname) ]; then
+    . ~/.zshrc.$(hostname)
 fi
 
 # zcompile
