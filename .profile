@@ -579,12 +579,6 @@ fi
 # ghq
 export GHQ_ROOT=~/ghq
 
-# volta
-if [ -d "$HOME/.volta" ]; then
-    export VOLTA_HOME="$HOME/.volta"
-    export PATH="$VOLTA_HOME/bin:$PATH"
-fi
-
 # deno
 if [ -d ~/.deno/bin ]; then
     export PATH=~/.deno/bin:$PATH
